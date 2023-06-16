@@ -90,10 +90,15 @@ body {
     color: #30A2FF;
 }
 
-.background-effect:hover {
-    /* background-color: #E3F4F4; */
-    background-color: #FFEEBB;
+.background-effect {
+    cursor: pointer;
     transition: 1200ms;
+}
+.background-effect:hover {
+    background-color: #99DBF5;
+    padding: 2px 15px;
+    border: 1px solid;
+    border-radius: 3px;
 }
 
 
