@@ -1,38 +1,44 @@
 /*** Variables. ***/
 const rowPopulares = document.querySelector('#rowPopulares');
 const rowSecundarios = document.querySelector('#rowSecundarios');
-let perPopulares = [1, 2, 3, 4, 5];
-let perSecundarios = [6, 7, 8, 9, 10, 11];
-let perSignificativos = [12, 13, 14, 15, 16, 18];
+const rowSignificativos = document.querySelector('#rowSignificativos');
+
+let personajesPopulares = [1, 2, 3, 4, 5];
+let personajesSecundarios = [6, 7, 8, 9, 10, 11];
+let personajesSignificativos = [12, 13, 14, 15, 16];
 let genPersonajesSection1 = generadorSeccion1();
-let indexSection1 = perPopulares[0];
+let indexSection1 = personajesPopulares[0];
 let genPersonajesSection2 = generadorSeccion2();
-let indexSection2 = perSecundarios[0];
-console.log(indexSection2)
+let indexSection2 = personajesSecundarios[0];
+let genPersonajesSection3 = generadorSeccion3();
+let indexSection3 = personajesSignificativos[0];
 
 
 /*** Eventos. ***/
 $('#cardPersonajesPopulares').mouseenter(() => {
-
-    if (perPopulares.find((popular) => popular == indexSection1)) {
+    if (personajesPopulares.find((popular) => popular == indexSection1)) {
         let personaje = genPersonajesSection1.next().value;
         obtenerDataApi(personaje, "red");
         indexSection1++;
-        // console.log("personaje: " + personaje);
-        // console.log("contador: " + indexSection1);
     }
 });
 
 $('#cardPersonajesSecundarios').mouseenter(() => {
-
-    if (perSecundarios.find((secundario) => secundario == indexSection2)) {
+    if (personajesSecundarios.find((secundario) => secundario == indexSection2)) {
         let personaje = genPersonajesSection2.next().value;
         obtenerDataApi(personaje, "green");
         indexSection2++;
-        console.log("personaje: " + personaje);
-        console.log("contador: " + indexSection2);
     }
 });
+
+$('#cardPersonajesSignificativos').mouseenter(() => {
+    if (personajesSignificativos.find((significativo) => significativo == indexSection3)) {
+        let personaje = genPersonajesSection3.next().value;
+        obtenerDataApi(personaje, "blue");
+        indexSection3++;
+    }
+});
+
 
 /*** Funciones. ***/
 const obtenerDataApi = (id, color) => {
@@ -52,30 +58,19 @@ const obtenerDataApi = (id, color) => {
 const imprimirCard = (datos, color) => {
     const {name, height, mass} = datos;
 
-    // console.log(color)
-    // console.log("El nombre es: "+ name);
-    // console.log("altura " + height);
-    // console.log("peso " + mass);
-
+    /* Estructura card con tarjetas y clases. */
     const div1 = document.createElement('div');
     div1.setAttribute("class", "col-12 col-md-6 col-lg-4");
-    
     const div2 = document.createElement('div');
     div2.setAttribute("class", "single-timeline-content d-flex background-show");
-    
     const icon = document.createElement('i');
     icon.setAttribute("class", `timeline-icon timeline-icon-${color} bi bi-circle-fill`);
-    
     const div3 = document.createElement('div');
     div3.setAttribute("class", "timeline-text");
-
     const h6 = document.createElement('h6');
     h6.innerHTML = `${name}`;
-
     const p = document.createElement('p');
     p.innerHTML = `Altura: ${height} cm. Peso: ${mass} kg.`;
-
-    
 
     if (color === "red") {
         rowPopulares.appendChild(div1);
@@ -87,39 +82,55 @@ const imprimirCard = (datos, color) => {
         div1.appendChild(div2);
         div2.append(icon, div3);
         div3.append(h6, p);
+    } else if (color === "blue") {
+        rowSignificativos.appendChild(div1);
+        div1.appendChild(div2);
+        div2.append(icon, div3);
+        div3.append(h6, p);
     }
 }
-
-//obtenerDataApi();
-
 
 /* Funciones generadoras. */
 function* generadorSeccion1() {
     let i = 0;
-    yield perPopulares[i];
+    yield personajesPopulares[i];
     i++;
-    yield perPopulares[i];
+    yield personajesPopulares[i];
     i++;
-    yield perPopulares[i];
+    yield personajesPopulares[i];
     i++;
-    yield perPopulares[i];
+    yield personajesPopulares[i];
     i++;
-    yield perPopulares[i];
+    yield personajesPopulares[i];
     i++;
 }
 
 function* generadorSeccion2() {
     let i = 0;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
     i++;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
     i++;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
     i++;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
     i++;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
     i++;
-    yield perSecundarios[i];
+    yield personajesSecundarios[i];
+    i++;
+}
+
+function* generadorSeccion3() {
+    let i = 0;
+    yield personajesSignificativos[i];
+    i++;
+    yield personajesSignificativos[i];
+    i++;
+    yield personajesSignificativos[i];
+    i++;
+    yield personajesSignificativos[i];
+    i++;
+    yield personajesSignificativos[i];
     i++;
 }
