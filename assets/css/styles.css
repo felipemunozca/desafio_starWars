@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("../img/The-Mandalorian-Wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
 .timeline_area {
     position: relative;
     z-index: 1;
@@ -64,6 +72,7 @@
     margin-top: 15px;
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     border: 1px solid #ebebeb;
+    background: white;
 }
 .single-timeline-area .single-timeline-content .timeline-icon {
     display: flex;
@@ -82,7 +91,8 @@
 }
 
 .background-effect:hover {
-    background-color: #E3F4F4;
+    /* background-color: #E3F4F4; */
+    background-color: #FFEEBB;
     transition: 1200ms;
 }
 
