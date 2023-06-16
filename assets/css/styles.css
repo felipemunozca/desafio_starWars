@@ -81,6 +81,12 @@
     color: #30A2FF;
 }
 
+.background-effect:hover {
+    background-color: #E3F4F4;
+    transition: 1200ms;
+}
+
+
 /*** Media queries ***/
 @media only screen and (max-width: 575px) {
     .single-timeline-area {
