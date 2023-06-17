@@ -60,7 +60,7 @@ const imprimirCard = (datos, color) => {
     const div1 = document.createElement('div');
     div1.setAttribute("class", "col-12 col-md-6 col-lg-4");
     const div2 = document.createElement('div');
-    div2.setAttribute("class", "single-timeline-content d-flex background-show");
+    div2.setAttribute("class", "single-timeline-content d-flex scale-up-top");
     const icon = document.createElement('i');
     icon.setAttribute("class", `timeline-icon timeline-icon-${color} bi bi-circle-fill`);
     const div3 = document.createElement('div');
